@@ -48,7 +48,7 @@ You can find the network plan(.pkt) in the newtorks folder, under the name "swit
 
 ### Router Network
 
-TODO TODO TODO TODO TODO TODO TODO TODO
+TODO BY STEPHANE
 
 ![router network plan](./images/network-project-routers.png)
 
