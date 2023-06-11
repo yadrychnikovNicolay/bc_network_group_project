@@ -52,11 +52,12 @@ Instead of using only switches, we thought about a solution with routers.
 Though it is theoretically a more expensive solution, especially so for a network of *this small size*, routing prevents congestion in the heart of the network, to some extent; since packets are sent through a single route instead of being spread out across all core switches then thrown away by switches that do not receive packets with a specific VLAN tag (or, that just die at the end of TTL if switches are setup to trunk on all interfaces, like in our example).
 
 Instead of using static routing, that has to be redone each time the network evolves; we used dynamic routing using OSPF (Open Shortest Path First) protocol. https://www.cisco.com/c/en/us/support/docs/ip/open-shortest-path-first-ospf/7039-1.html
+
 What OSPF essentially does is allowing routers to learn routes from their neighbor routers, dynamically. Plus, OSPF picks the shortest available route (actually the one that has the *higher priority*) for each transmission. The protocol constantly checks the state of the known links and then transmits to other routers their state, periodically. That's why, if an interface is turned down or up on one of the routers, we can read on the other routers' CLI that X interface state has changed.
 OSPF is therefore what we call a **link state protocol**.
 Therefore, whenever a link state changes (its address, or subnet mask, or just its activity state), the whole network autonomously adapts to any changes as the routers re-learn their routes live.
 
-All 6 routers in our network are configured with OPSF and all central routers' configs are found in the *running-config* files in the *configs* folder. [proposed todo: make that folder and push the running-config txt files].
+All 6 routers in our network are configured with OPSF and all central routers' configs are found in the *running-config* files in the *configs* folder.
 
 __Here below is the addressing plan of the network__:
 
